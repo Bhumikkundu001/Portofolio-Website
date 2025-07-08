@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bhumik's Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <script src="https://unpkg.com/typed.js@2.0.15/dist/typed.umd.js"></script>
+</head>
+<body class="dark-mode">
+  <header>
+    
+    <nav class="navbar">
+      <button class="navbar-toggle" id="navbar-toggle" aria-label="Toggle navigation">
+        <i class='bx bx-menu'></i>
+      </button>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#contact">Contact</a>
+      <div class="social-icons">
+        <a href="https://www.linkedin.com/in/bhumikkundu/" target="_blank" aria-label="LinkedIn"><i class='bx bxl-linkedin'></i></a>
+        <a href="https://github.com/Bhumikkundu001" target="_blank" aria-label="GitHub"><i class='bx bxl-github'></i></a>
+        <a href="https://twitter.com/BhumikKundu" target="_blank" aria-label="Twitter"><i class='bx bxl-twitter'></i></a>
+        <a href="https://wa.me/+919996633043" target="_blank" aria-label="WhatsApp"><i class='bx bxl-whatsapp'></i></a>
+      </div>
+      <div class="toggle-container">
+        <button id="mode-toggle"><i class='bx bx-moon'></i></button>
+        <select id="language-select">
+          <option value="en">EN</option>
+          <option value="hi">हिंदी</option>
+        </select>
+      </div>
+    </nav>
+  </header>
+
+  <section id="home" class="section home">
+    <div class="content">
+      <h1 data-key="greeting">Hi, I'm Bhumik Kundu</h1>
+      <h2>I'm a <span class="typing"></span></h2>
+      <p data-key="intro">Web Developer | AI/ML Enthusiast</p>
+    </div>
+  </section>
+
+  <section id="about" class="section" data-aos="fade-up">
+    <h2 class="section-heading" data-key="aboutTitle">About Me</h2>
+    <p data-key="aboutText">I'm a Computer Science student at Bennett University. I love building projects, exploring tech, and solving problems using AI and web development.</p>
+  </section>
+
+  <section id="services" class="section" data-aos="fade-up">
+    <h2 class="section-heading" data-key="servicesTitle">Services</h2>
+    <div class="card-container">
+      <div class="card" data-aos="zoom-in">
+        <i class='bx bx-code-alt'></i>
+        <h3>Web Development</h3>
+        <p>Responsive, optimized, and scalable websites.</p>
+      </div>
+      <div class="card" data-aos="zoom-in">
+        <i class='bx bx-brain'></i>
+        <h3>AI Projects</h3>
+        <p>Building smart solutions with machine learning.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="portfolio" class="section" data-aos="fade-up">
+    <h2 class="section-heading" data-key="portfolioTitle">Portfolio</h2>
+    <p>Sample projects go here (to be updated).</p>
+  </section>
+
+  <section id="contact" class="section" data-aos="fade-up">
+    <h2 class="section-heading" data-key="contactTitle">Contact</h2>
+    <form id="contact-form">
+      <input type="text" name="name" placeholder="Name" required />
+      <input type="email" name="email" placeholder="Email" required />
+      <textarea name="message" placeholder="Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Bhumik Kundu. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    (function(){
+      emailjs.init("RXS1BYXY5tNOxWH3L"); // Replace with your EmailJS public key
+    })();
+
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      emailjs.sendForm('service_fm39dnk', 'template_540djs7', this)
+        .then(function() {
+          alert('Message sent successfully!');
+          document.getElementById('contact-form').reset();
+        }, function(error) {
+          alert('Failed to send message. Please try again.');
+        });
+    });
+  </script>
+</body>
+</html>
